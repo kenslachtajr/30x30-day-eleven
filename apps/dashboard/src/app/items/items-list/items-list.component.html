@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+  <mat-list>
+    <h3 mat-subheader>Items</h3>
+    <mat-list-item
+      class="mat-list-option"
+      *ngFor="let item of items"
+      (click)="selectItem(item)"
+    >
+      <h4 mat-line><strong>Item Name: </strong>{{ item.name }}</h4>
+      <p mat-line><strong>Item Description: </strong>{{ item.description }}</p>
+      <button
+        mat-mini-fab
+        color="accent"
+        class="mat-pseudo-checkbox"
+        (click)="deleteItem(item); $event.stopImmediatePropagation()"
+      >
+        <mat-icon> clear </mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

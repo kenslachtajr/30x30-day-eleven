@@ -1,0 +1,19 @@
+<div class="wrapper">
+  <div class="list-grid">
+    <ngrx-items-items-list
+      [items]="items$ | async"
+      [isLoading]="loading$ | async"
+      (selected)="selectItem($event)"
+      (deleted)="deleteItem($event)"
+    >
+    </ngrx-items-items-list>
+  </div>
+  <div class="details-grid">
+    <ngrx-items-items-details
+      [group]="form"
+      (saved)="saveItem($event)"
+      (cancelled)="reset()"
+    >
+    </ngrx-items-items-details>
+  </div>
+</div>
